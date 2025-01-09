@@ -7,21 +7,23 @@ import {
   View,
 } from "react-native";
 import React, { useState } from "react";
+import FAB from "./components/FAB";
 
 export default function App() {
   const [count, setCount] = useState(10);
+
+  const fabLabel = "+1";
 
   return (
     <View style={styles.container}>
       <Text style={styles.textHuge}>{count}</Text>
 
-      <Pressable
+      <FAB
+        label={fabLabel}
         onPress={() => setCount(count + 1)}
         onLongPress={() => setCount(0)}
-        style={styles.floatingButton}
-      >
-        <Text style={{ color: "white", fontSize: 20 }}>+1</Text>
-      </Pressable>
+        position="left"
+      />
 
       <StatusBar style="auto" />
     </View>
@@ -38,18 +40,5 @@ const styles = StyleSheet.create({
   textHuge: {
     fontSize: 120,
     fontWeight: "100",
-  },
-  floatingButton: {
-    position: "absolute",
-    bottom: 20,
-    right: 20,
-    backgroundColor: "#65558F",
-    padding: 20,
-    borderRadius: 15,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 }, // only iOS
-    shadowOpacity: 0.3, // only iOS
-    shadowRadius: 4,
-    elevation: 3,
   },
 });
