@@ -13,6 +13,7 @@ export default function App() {
   const [count, setCount] = useState(10);
 
   const fabLabel = "+1";
+  const fabReset = "Reset";
 
   return (
     <View style={styles.container}>
@@ -22,8 +23,10 @@ export default function App() {
         label={fabLabel}
         onPress={() => setCount(count + 1)}
         onLongPress={() => setCount(0)}
-        position="left"
+        position="right"
       />
+
+      <FAB label={fabReset} onLongPress={() => setCount(0)} position="left" />
 
       <StatusBar style="auto" />
     </View>
