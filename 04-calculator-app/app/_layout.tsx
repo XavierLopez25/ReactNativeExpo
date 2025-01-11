@@ -1,10 +1,17 @@
 //React Native imports first
-import { View, Text } from "react-native";
+import { View, Text, Platform } from "react-native";
 
 //Expo imports then
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import * as NavigationBar from "expo-navigation-bar";
+
+const isAndroid = Platform.OS === "android";
+
+if (isAndroid) {
+  NavigationBar.setBackgroundColorAsync("black");
+}
 
 //Finally, custom stuff imports
 import { globalStyles } from "@/styles/global-styles";
